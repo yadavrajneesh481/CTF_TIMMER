@@ -1,0 +1,281 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url(ionx.png);
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    color: #fff;
+    background-size: cover;
+    /* Ensures full coverage on larger screens */
+}
+
+/* Hide the up and down arrows from the number input fields */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    /* Firefox */
+}
+
+#chronometer {
+    /* margin-bottom: 460px; */
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: black;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    backdrop-filter: blur(2px);
+    animation: fadeIn 1s ease-out;
+    width: 80%;
+    max-width: 1000px;
+}
+
+#display {
+    font-size: 4em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    letter-spacing: 3px;
+    transition: transform 0.3s ease;
+}
+
+#countdownInput {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#countdownInput input {
+    width: 80px;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+#countdownInput input[type="number"] {
+    padding: 18px;
+    margin: 5px;
+    border: 2px solid #000;
+    border-radius: 10px;
+}
+
+#controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+button {
+    width: 120px;
+    height: 50px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #fff;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #131313, #fd0303);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle,
+            rgba(255, 255, 255, 0.1) 0%,
+            rgba(255, 255, 255, 0) 80%);
+    transition: all 0.3s ease;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 0;
+}
+
+button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+button:hover {
+    background: linear-gradient(135deg, #fa0404, #080808);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#start {
+    background-color: #2ecc71;
+}
+
+#stop {
+    background-color: #e74c3c;
+}
+
+#reset {
+    background-color: #3498db;
+}
+
+#countdown {
+    background-color: #f39c12;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#alert {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: center;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#alert p {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+#alert button {
+    background-color: #2ecc71;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    color: #fff;
+    margin-top: 20px;
+}
+
+#alert button:hover {
+    background-color: #27ae60;
+}
+
+
+
+
+
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+
+
+
+
+img {
+    /* margin: 100px; */
+    height: 100px;
+    width: 300px;
+}
+
+.text-pop-up-top {
+    -webkit-animation: text-pop-up-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: text-pop-up-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+#replay {
+    margin: 0px auto;
+    padding: 20px;
+    width: 50px;
+    height: 50px;
+    background: url("https://cdn1.iconfinder.com/data/icons/navigate-the-interface/256/Ui_glyphs_replay-512.png") 50% 50% no-repeat;
+    background-size: 38px;
+    text-indent: -99999px;
+    border: 0px;
+    display: block;
+    outline-style: none;
+    cursor: pointer;
+}
+
+#replay:hover {
+    border-radius: 30px;
+    border: 3px solid #414042;
+}
+
+@-webkit-keyframes text-pop-up-top {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        text-shadow: none;
+    }
+
+    100% {
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        text-shadow: 0 1px 0 #ff0000, 0 2px 0 #000, 0 3px 0 #000,
+            0 4px 0 #000, 0 5px 0 #000, 0 6px 0 #000, 0 7px 0 #000,
+            0 8px 0 #000, 0 9px 0 #000, 0 50px 30px rgba(0, 0, 0, 0.3);
+    }
+}
+
+@keyframes text-pop-up-top {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        text-shadow: none;
+    }
+
+    100% {
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        text-shadow: 0 1px 0 #000, 0 2px 0 #000, 0 3px 0 #000,
+            0 4px 0 #000, 0 5px 0 #000, 0 6px 0 #000, 0 7px 0 #000,
+            0 8px 0 #000, 0 9px 0 #000, 0 50px 30px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    body {
+        background-size: 100% 100%;
+        /* Adjusts the background size to fit the screen */
+    }
+}
